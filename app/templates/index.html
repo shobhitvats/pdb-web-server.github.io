@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDB Chalcogen Bond Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>PDB Chalcogen Bond Detector</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <label for="pdb_file">Upload PDB File:</label>
+            <input type="file" name="pdb_file" id="pdb_file" accept=".pdb">
+            <br>
+            <label for="pdb_id">Or Enter PDB ID:</label>
+            <input type="text" name="pdb_id" id="pdb_id" placeholder="e.g., 4l81">
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+        {% if output %}
+            <h2>Results:</h2>
+            <pre>{{ output }}</pre>
+        {% endif %}
+    </div>
+</body>
+</html>
